@@ -14,17 +14,18 @@ const Posts: React.FC = () => {
   const { data, isLoading, isError, error } = useQuery<Post[], Error>({
     queryKey: ["posts"], // Query key
     queryFn: fetchPosts, // Fetch function
+    staleTime: 1000 * 60 * 5, // 5 minutes
   });
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error: {(error as Error).message}</div>;
 
   return (
-    <div>
+    <div className="posts-container">
       <h1>Posts</h1>
-      <ul>
+      <ul className="posts-list">
         {data?.map((post) => (
-          <li key={post.id}>
+          <li key={post.id} className="post">
             <h2>{post.title}</h2>
             <p>{post.body}</p>
           </li>

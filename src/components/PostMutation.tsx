@@ -55,26 +55,28 @@ const PostMutation: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="posts-container">
       <h1>Add a Post</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="Body"
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-          required
-        />
-        <button type="submit" disabled={mutation.isPending}>
-          {mutation.isPending ? "Adding..." : "Add Post"}
-        </button>
-      </form>
+      <div className="posts-container">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+          <textarea
+            placeholder="Body"
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            required
+          />
+          <button type="submit" disabled={mutation.isPending}>
+            {mutation.isPending ? "Adding..." : "Add Post"}
+          </button>
+        </form>
+      </div>
       {mutation.isError && <p>Error adding post</p>}
     </div>
   );

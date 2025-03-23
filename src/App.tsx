@@ -45,6 +45,14 @@ const App: React.FC = () => {
           </li>
           <li>
             <NavLink
+              to="/post/1"
+              className={({ isActive }) => (isActive ? "active" : undefined)}
+            >
+              Post Details
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/optimistic-update"
               className={({ isActive }) => (isActive ? "active" : undefined)}
             >

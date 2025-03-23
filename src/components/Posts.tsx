@@ -2,6 +2,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPosts } from "../services/postService";
+import { NavLink } from "react-router-dom";
 
 interface Post {
   id: number;
@@ -28,6 +29,14 @@ const Posts: React.FC = () => {
           <li key={post.id} className="post">
             <h2>{post.title}</h2>
             <p>{post.body}</p>
+            <NavLink
+              to={`/post/${post.id}`}
+              className={({ isActive }) =>
+                isActive ? "button active" : "button"
+              }
+            >
+              Details
+            </NavLink>
           </li>
         ))}
       </ul>

@@ -34,13 +34,13 @@ const PostDetails: React.FC = () => {
   if (commentsLoading) return <div>Loading comments...</div>;
 
   return (
-    <div>
+    <div className="post-container">
       <h1>{post?.title}</h1>
       <p>{post?.body}</p>
       <h2>Comments</h2>
-      <ul>
+      <ul className="posts-list">
         {comments?.map((comment: any) => (
-          <li key={comment.id}>
+          <li key={comment.id} className="post">
             <strong>{comment.name}</strong>: {comment.body}
           </li>
         ))}
